@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "5373bfaf-25dd-421c-87c7-3c6d157aa6d6",
+		"name": "JSONPlaceholder API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49466614",
+		"_collection_link": "https://lexa1111kevin-8792745.postman.co/workspace/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B5%D0%B9-%D0%97%D1%83%D0%B1%D0%B0%D1%80%D0%B5%D0%B2's-Workspace~593549a0-5f34-4068-82c4-c49ac8996d1f/collection/49466614-5373bfaf-25dd-421c-87c7-3c6d157aa6d6?action=share&source=collection_link&creator=49466614"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response is array\", () => {\r",
+							"    pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Post has required fields\", () => {\r",
+							"    const post = pm.response.json()[0];\r",
+							"    pm.expect(post).to.have.property(\"id\");\r",
+							"    pm.expect(post).to.have.property(\"title\");\r",
+							"    pm.expect(post).to.have.property(\"body\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

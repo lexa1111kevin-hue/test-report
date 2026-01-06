@@ -1,0 +1,37 @@
+import requests
+
+BASE_URL = "https://jsonplaceholder.typicode.com"
+
+
+def test_create_post():
+    response = requests.post(
+        f"{BASE_URL}/posts",
+        json={
+            "title": "foo",
+            "body": "bar",
+            "userId": 1
+        }
+    )
+    assert response.status_code == 201
+    data = response.json()
+    assert "id" in data
+    assert data["title"] == "foo"
+
+
+def test_update_post():
+    response = requests.put(
+        f"{BASE_URL}/posts/1",
+        json={
+            "id": 1,
+            "title": "updated",
+            "body": "text",
+            "userId": 1
+        }
+    )
+    assert response.status_code == 200
+    assert response.json()["title"] == "updated"
+
+
+def test_delete_post():
+    response = requests.delete(f"{BASE_URL}/posts/1")
+    assert response.status_code == 200
