@@ -1,0 +1,12 @@
+ SQL запрос для получения пассажиров поездки с id = 7771
+ 
+
+SELECT
+    pit.id,
+    pit.trip,
+    pit.passenger,
+    pit.place,
+    p.name
+FROM pass_in_trip pit
+JOIN passenger p ON pit.passenger = p.id
+WHERE pit.trip = 7771;
